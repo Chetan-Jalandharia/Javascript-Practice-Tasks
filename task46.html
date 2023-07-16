@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>names list</title>
+    <style>
+        body {
+            padding: 0%;
+            margin: 0%;
+        }
+
+        .main {
+
+            height: 99.5vh;
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+            background-image: linear-gradient(to right, #f7a5bd 0%, #f1dc66 100%);
+
+        }
+
+        .box {
+            width: 30%;
+            height: 350px;
+            border: 2px solid black;
+            border-radius: 10px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-evenly;
+            background-image: linear-gradient(to top, #a8edea 0%, #fed6e3 100%);
+
+        }
+
+        .sm-box {
+            display: flex;
+            justify-content: space-evenly;
+        }
+
+        input[type='text'] {
+            width: 160px;
+            padding: 7px;
+            font-size: large;
+        }
+
+        button {
+            width: 130px;
+            padding: 7px;
+            font-size: 18px;
+        }
+
+        select {
+            width: 200px;
+            padding: 3px;
+            font-size: 18px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="main">
+        <div class="box">
+
+            <div class="sm-box">
+                <input type="text" id="data" placeholder="Enter Names">
+                <button onclick="add()">Add</button>
+            </div>
+
+            <div class="sm-box">
+                <button onclick="show()">Show</button>
+            </div>
+
+            <div class="sm-box">
+                <select id="list">
+                    <option value="" disabled selected hidden>Select a value</option>
+                </select>
+            </div>
+
+
+        </div>
+    </div>
+
+    <script>
+        // let values = []
+        let count = 0;
+
+        function add() {
+            let p = document.getElementById('data').value;
+            let opt = '<option value="' + p + '" class="item" hidden >' + p + '</option>';
+
+            let x = opt;
+            // values.push(x);
+            document.getElementById('list').innerHTML += x;
+            count++;
+            document.getElementById('data').value = '';
+            console.log(opt);
+
+        }
+
+        function show() {
+            n = count;
+            for (let i = 0; i < count; i++) {
+
+                document.getElementsByClassName('item')[i].hidden = false;
+            }
+        }
+
+
+
+    </script>
+</body>
+
+</html>

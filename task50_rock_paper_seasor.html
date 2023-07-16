@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Rock-Paper-seasor</title>
+
+  <style>
+    * {
+      padding: 0%;
+      margin: 0;
+      box-sizing: border-box;
+    }
+
+    .main {
+      height: 100vh;
+      width: 100vw;
+      background: aliceblue;
+    }
+
+    .top {
+      height: 30%;
+      width: 100%;
+      display: flex;
+      justify-content: space-evenly;
+    }
+
+    .mid {
+      height: 30%;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      text-align: center;
+    }
+
+    .bottom {
+      height: 30%;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-evenly;
+    }
+
+    .user,
+    .comp {
+      height: 50%;
+      text-align: center;
+    }
+
+    .choice {
+      height: 50%;
+    }
+
+    .data {
+      height: 80%;
+      /* width: 100%; */
+
+      display: flex;
+      justify-content: space-evenly;
+    }
+
+    .b-data {
+      display: flex;
+      justify-content: space-evenly;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="main">
+    <div class="top">
+      <div class="user">
+        <img src="male-avatar.jpg" height="100%" id="userimg" />
+        <h3>user</h3>
+      </div>
+      <div class="comp">
+        <img src="png-computer.png" height="100%" id="compimg"/>
+        <h3>computer</h3>
+      </div>
+    </div>
+    <div class="mid">
+      <div class="data">
+        <div id="rock" class="choice">
+          <img src="rock-576685_1280.png" height="100%" />
+        </div>
+        <div id="paper" class="choice">
+          <img src="Paper_450x450.jpg" height="100%" />
+        </div>
+        <div id="seasor" class="choice">
+          <img src="seasor.png" height="100%" />
+        </div>
+      </div>
+
+      <div>
+        <button class="btn">reset</button>
+      </div>
+    </div>
+    <div class="bottom">
+      <div class="b-data">
+        <div>
+          <span>user</span>
+          <input id="user" type="number" value="0" />
+        </div>
+        <div>
+          <span>computer</span>
+          <input id="computer" type="number" value="0" />
+        </div>
+      </div>
+
+      <div id="winner" style="
+            width: 150px;
+            height: 50px;
+            background-color: rgb(40, 123, 196);
+            margin: auto;
+          "></div>
+    </div>
+  </div>
+
+  <script>
+    let values = ["rock", "paper", "seasor"]
+    let userscore = 0;
+    let compscore = 0;
+
+      let user;
+      let comp;
+
+      while(user)
+      document.querySelectorAll(".choice").forEach((element) => {
+        element.addEventListener("click", () => {
+          user = element.id;
+
+          c = parseInt(Math.random() * 3);
+
+          comp = values[c];
+
+          if (user == "rock") {
+
+            document.getElementById('userimg').src="rock-576685_1280.png";
+            if (comp == "seasor") {
+              document.getElementById('compimg').src="seasor.png";
+              let x = parseInt(document.getElementById('user').value);
+              userscore=document.getElementById('user').value = x + 1;
+              console.log("user");
+            }
+            else if (comp == "paper") {
+              document.getElementById('compimg').src="Paper_450x450.jpg";
+
+              let x = parseInt(document.getElementById('computer').value);
+              compscore=document.getElementById('computer').value = x + 1;
+              console.log("comp");
+            }
+
+            else{
+              document.getElementById('compimg').src="rock-576685_1280.png";
+              console.log("draw");
+            }
+
+          }
+          else if (user == "paper") {
+
+            document.getElementById('userimg').src="Paper_450x450.jpg";
+
+            if (comp == "seasor") {
+              document.getElementById('compimg').src="seasor.png";
+
+              let x = parseInt(document.getElementById('computer').value);
+             compscore= document.getElementById('computer').value = x + 1;
+              console.log("comp");
+            }
+            else if (comp == "rock") {
+              document.getElementById('compimg').src="rock-576685_1280.png";
+
+              let x = parseInt(document.getElementById('user').value);
+              userscore=document.getElementById('user').value = x + 1;
+              console.log("user");
+            }
+            else{
+              document.getElementById('compimg').src="Paper_450x450.jpg";
+              console.log("draw");
+            }
+          }
+          else if (user == "seasor") {
+
+            document.getElementById('userimg').src="seasor.png";
+
+            if (comp == "paper") {
+              document.getElementById('compimg').src="Paper_450x450.jpg";
+
+              let x = parseInt(document.getElementById('user').value);
+             userscore= document.getElementById('user').value = x + 1;
+              console.log("user");
+            }
+            else if (comp == "rock") {
+              document.getElementById('compimg').src="rock-576685_1280.png";
+
+              let x = parseInt(document.getElementById('computer').value);
+            compscore=  document.getElementById('computer').value = x + 1;
+              console.log('computer');
+            }
+            else{
+              document.getElementById('compimg').src="seasor.png";
+              console.log("draw");
+            }
+          }
+        });
+      });
+
+
+
+  </script>
+</body>
+
+</html>

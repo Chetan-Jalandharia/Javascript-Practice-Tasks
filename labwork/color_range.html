@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            width: 100px;
+            height: 100px;
+            /* border: 2px solid black; */
+        }
+    </style>
+</head>
+
+<body>
+
+    Enter a Number:
+    <input type="number" id="num">
+
+    <button onclick="show()">show</button>
+
+    <div id="container">
+
+    </div>
+
+
+    <script>
+        function show() {
+            var a = document.getElementById('num').value;
+            document.getElementById('container').innerHTML ="";
+
+
+            for (let i = 1; i <= a; i++) {
+                // document.getElementsByClassName('box')[i].style.background='red';
+                var b = '<br> <div class="box"></div> <br>';
+                document.getElementById('container').innerHTML += b;
+            }
+            for (let i = 0; i < a; i++) {
+
+                if (a % 2 == 0) {
+                    document.getElementsByClassName('box')[i].style.background = 'red';
+                }
+                else {
+                    document.getElementsByClassName('box')[i].style.background = 'yellow';
+                }
+
+            }
+
+        }
+
+    </script>
+</body>
+
+</html>

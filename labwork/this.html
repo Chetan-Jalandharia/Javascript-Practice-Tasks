@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>this keyword</title>
+    <style>
+        .main{
+            width: 85vw;
+            /* height: 500px; */
+            margin: auto;
+        }
+        .container{
+            display: flex;
+            justify-content: space-evenly;
+        }
+
+        /* .pic{
+            width: 25%;
+        } */
+    </style>
+</head>
+<body>
+    
+    <div class="main">
+        <img src="/images/bg.jpg" id="big" width="100%">
+    </div>
+
+    <div class="container">
+         <img src="/images/b1.jpg" width="200" class="pic" onmouseover="change(this.StyleSheet)">
+         <img src="/images/b2.jpg" class="pic" onmouseover="change(this.src)">
+         <img src="/images/b3.jpg" class="pic" onmouseover="change(this.src)">
+    </div>
+
+
+
+    <script>
+        function change(s) {
+        //   document.getElementById('big').src=s;
+        alert(s)
+        }
+    </script>
+</body>
+</html>

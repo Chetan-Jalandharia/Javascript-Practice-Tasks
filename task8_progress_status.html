@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>progress status in form</title>
+    <style>
+        form {
+
+            width: 400px;
+            height: 400px;
+border: 2px solid black;
+padding: 25px;
+            margin: auto;
+            margin-top: 100px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-evenly;
+        }
+
+        form input {
+            padding: 5px;
+        }
+
+       progress{
+        border: 2px solid greenyellow;
+        
+       }
+
+       #btn{
+        padding: 5px;
+       }
+       
+    </style>
+</head>
+
+<body>
+    <div class="form">
+        <form action="task8_progress_status.html">
+            Enter your Name:
+            <input type="text" id="name" onblur="change()">
+            
+            Enter your E-mail:
+            <input type="email" id="email" onblur="change()">
+          
+            Enter your Password:
+            <input type="password" id="password" onblur="change()">
+            
+            Enter your Contact no:
+            <input type="tel" id="contact" onblur="change()">
+<br>
+<br>
+            <button type="submit" id="btn">submit</button>
+            <br>
+<br>
+            <progress min="0" max="100" value="0" id="pro"></progress>
+        </form>
+    </div>
+
+
+    <script>
+ 
+ function change() {
+
+    x=document.getElementById('pro');
+    x.value+=25;
+    
+ }
+    </script>
+</body>
+
+</html>

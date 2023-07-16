@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>billing system</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            padding: 0%;
+            margin: 0%;
+        }
+
+
+        .main {
+            /* height: 100vh; */
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+            flex-wrap: wrap;
+            background-image: linear-gradient(to top, #0fd850 0%, #f9f047 100%);
+
+           
+        }
+
+        .box {
+            width: 32%;
+            height: 85vh;
+            min-width: 350px;
+            /* max-width: 200px; */
+            /* height: 500px; */
+            border: 2px solid rgb(219, 33, 33);
+            display: flex;
+            flex-direction: column;
+            /* margin-top: 30px; */
+            margin: 7.5vh 0 7.5vh;
+            background-image: linear-gradient(to top, #cfd9df 0%, #e2ebf0 100%);
+
+        }
+
+        .box-x {
+            justify-content: space-evenly;
+        }
+
+        .main input[type='text'] {
+            width: 150px;
+            padding: 10px;
+
+        }
+
+        .main button {
+            width: 140px;
+            padding: 9px;
+        }
+
+        .main select {
+            width: 160px;
+            padding: 9px;
+        }
+
+        .sm-box {
+            display: flex;
+            justify-content: space-evenly;
+        }
+
+        #total {
+            font-size: large;
+            text-align: center;
+        }
+
+        #table {
+            overflow: scroll;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="main">
+
+        <!-- ----------- first box ---------------- -->
+
+        <div class="box box-x ">
+
+            <div class="sm-box">
+                <input type="text" id="product">
+                <button onclick="add()">Add</button>
+            </div>
+
+            <div class="sm-box">
+                <select id="product_list">
+                    <option value="" disabled selected hidden>Select a product</option>
+                </select>
+
+                <input type="text" id="price">
+            </div>
+
+            <div class="sm-box">
+                <button onclick="set()">Set price</button>
+            </div>
+
+        </div>
+
+        <!-- ----------- second box ---------------- -->
+
+        <div class="box box-x">
+
+            <div class="sm-box">
+                <select id="product_list2" >
+                    <option value="" disabled selected hidden>Select a product</option>
+                </select>
+
+                <input type="number" id="quantity">
+            </div>
+
+            <div class="sm-box">
+                <button onclick="setcart()">add to cart</button>
+            </div>
+
+            <div class="sm-box">
+                <button onclick="pay()">Pay</button>
+            </div>
+
+        </div>
+
+        <!-- ----------- third box ---------------- -->
+
+        <div class="box table-x">
+            <table border="2px" id="table">
+                <thead>
+                    <tr>
+                        <th>product</th>
+                        <th>price</th>
+                        <th>Quantity</th>
+                        <th>final price</th>
+                    </tr>
+                </thead>
+                <tbody id="slip">
+
+                </tbody>
+                <tfoot id="total">
+
+                </tfoot>
+            </table>
+        </div>
+
+
+    </div>
+
+
+
+
+
+    <script>
+
+        let product_price = {}
+        // let product_price_val = {}
+        let cart = {}
+
+
+        // <!-- ----------- first box functions ---------------- -->
+
+        function add() {
+            let p = document.getElementById('product').value;
+            let opt = '<option value="' + p + '">' + p + '</option>';
+
+            document.getElementById('product_list').innerHTML += opt;
+            document.getElementById('product').value = '';
+            // console.log(x);
+
+        }
+
+        function set() {
+            let p = document.getElementById('product_list').value;
+            let pp = parseInt(document.getElementById('price').value);
+
+            product_price[p] = pp;
+
+            // product_price_val[p] = p + " " + "$" + pp;
+
+            pl2 = '<option value="' + p + '">' + p + " " + "$" + pp + '</option>';
+            z = document.getElementById('product_list2').innerHTML += pl2;
+
+            document.getElementById('price').value = '';
+            console.log(product_price);
+
+
+        }
+
+
+
+        // <!-- ----------- second box functions ---------------- -->
+
+        function setcart() {
+            let p = document.getElementById('product_list2').value;
+            let pp = product_price[p];
+            let u = parseInt(document.getElementById('quantity').value);
+
+            // alert(p+pp+u);
+
+            cart[p] = { 'price': pp, 'unit': u };
+
+            console.log(cart);
+
+
+
+
+        }
+
+        function pay() {
+            document.getElementById('slip').innerHTML = '';
+            let total = 0;
+
+            for (const p in cart) {
+
+                let product = p;
+                let price = cart[p]['price'];
+                let unit = cart[p]['unit'];
+
+                let value = price * unit;
+
+                let row = ` <tr>
+                                  <td>`+ product + `</td>
+                                  <td>`+ price + `</td>
+                                  <td>`+ unit + `</td>
+                                  <td>`+ value + `</td>
+                              </tr>`
+
+                document.getElementById('slip').innerHTML += row;
+                total += value;
+
+                let t = ` <tr>
+                        <td colspan="3">Total is</td>
+                        <td>`+ total + `</td>
+                    </tr>`
+                document.getElementById('total').innerHTML = t;
+
+            }
+
+        }
+
+
+
+
+    </script>
+</body>
+
+</html>

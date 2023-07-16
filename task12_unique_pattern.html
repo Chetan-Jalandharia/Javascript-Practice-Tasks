@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>pattern check</title>
+    <style>
+        .container {
+            width: 500px;
+            height: 200px;
+            background-color: aliceblue;
+            border: 2px solid black;
+            margin: auto;
+            font-size: larger;
+            padding: 50px;
+        }
+
+        #v {
+            padding: 10px;
+            width: 50%;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        Enter text:
+        <input type="text" id="v">
+
+        <br>
+        <br>
+        <span id="va"></span>
+        <br>
+
+        <button onclick="check()">check</button>
+    </div>
+
+
+
+    <script>
+        function check() {
+            var text = document.getElementById('v').value;
+
+            var pattern = /^([a-z])\1([A-Z])\2([0-9])\3$/;
+          
+
+            if (pattern.test(text)) {
+                document.getElementById('va').innerHTML="valid";
+            }
+            else {
+                document.getElementById('va').innerHTML="invalid";
+            }
+        }
+
+    </script>
+</body>
+
+</html>

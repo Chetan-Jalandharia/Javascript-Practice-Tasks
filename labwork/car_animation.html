@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Car ride</title>
+    <style>
+      
+        #car {
+          
+            animation-name: ride;
+            animation-duration: 15s;
+            animation-iteration-count: infinite;
+            position: absolute;
+            top: 200px;
+        }
+
+      
+
+
+        #w1 {
+            position: absolute;
+            top: 84px;
+            left: 260px;
+           border-radius: 80px;
+           transform: rotate(360deg);
+           animation-name: spin;
+           animation-duration: 1s;
+           animation-iteration-count: infinite;
+           animation-timing-function: linear;
+        }
+        #w2 {
+            position: absolute;
+            top: 84px;
+            left: 60px;
+           border-radius: 100px;
+           transform: rotate(360deg);
+           animation-name: spin;
+           animation-duration: 1s;
+           animation-iteration-count: infinite;
+           animation-timing-function: linear;
+
+        }
+
+        @keyframes ride{
+            from{
+                left: 0px;
+            }
+            to{
+                left: 100vw;
+            }
+        }
+
+        @keyframes spin{
+            from{
+                transform: rotate(0deg);
+            }
+            to{
+                transform: rotate(360deg);
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+  
+        <div id="car">
+            
+                <img src="tarzen.png" width="450px" id="c-body">
+           
+           
+                <img src="wheel.png" width="70px" id="w1">
+         
+           
+                <img src="wheel.png" width="70px" id="w2">
+          
+
+        </div>
+  
+
+</body>
+
+</html>

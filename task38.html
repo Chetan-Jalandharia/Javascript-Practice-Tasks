@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>operator range</title>
+    <style>
+        .main {
+            display: flex;
+            justify-content: space-evenly;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="main">
+        <div class="box">Enter Number : <input type="text" id="range"></div>
+        <div class="box">Select operator :
+            <select id="operator" onchange="show()">
+                <option value="" disabled selected hidden>Select a operator</option>
+                <option value="images/icons8-plus-100.png">+</option>
+                <option value="images/icons8-minus-96.png">-</option>
+                <option value="images/icons8-divide-96.png">/</option>
+                <option value="images/icons8-multiply-96.png">*</option>
+            </select>
+        </div>
+
+
+    </div>
+    <div id="show">
+
+    </div>
+
+
+
+    <script>
+        
+        function show() {
+            let r = document.getElementById('range').value;
+            let img = document.getElementById('operator').value;
+
+            for (let i = 1; i <= r; i++) {
+
+                a = '<img src="' + img + '" id="' + i + '" onclick="get(this.id)">';
+                document.getElementById('show').innerHTML += a;
+            }
+         
+        }
+
+        function get(x) {
+            let n = parseInt(x);
+            let v = parseInt(document.getElementById('range').value);
+            document.getElementById('range').value = v + n;
+            document.getElementById('show').innerHTML = '';
+        }
+
+    </script>
+</body>
+
+</html>

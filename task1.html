@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>div color changer</title>
+    <style>
+        #box{
+            width: 200px;
+            height: 200px;
+            background-color: aqua;
+        }
+    </style>
+</head>
+<body>
+    
+
+    <input type="number" id="n1">
+    <input type="number" id="n2">
+
+    <button onclick="change()">click</button>
+
+    <br>
+
+    <div id="box">
+
+    </div>
+
+    <script>
+
+        function change(){
+            
+            var a=parseInt(document.getElementById('n1').value);
+            var b= parseInt(document.getElementById('n2').value) ;
+            
+
+            if (a<b) {
+                document.getElementById("box").style.background='green';
+            }
+
+            else if(a==b){
+                document.getElementById('box').style.background='purple';
+            }
+            else{
+                document.getElementById('box').style.background='red';
+
+            }
+
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GST calculator</title>
+</head>
+<body>
+    
+    enter amount:
+    <input type="number" id="am">
+    <br>
+    <br>
+    GST:
+    <input type="number"  id="gst">
+    <br>
+    <br>
+    Total Payable:
+    <input type="text"  id="total">
+    <br>
+    <br>
+    <button onclick="result()">check</button>
+
+    <script>
+        
+        function result() {
+            
+            var amount=parseInt(document.getElementById('am').value);
+
+            var gst=parseInt(document.getElementById('gst').value);
+
+            var totalgst=amount*(gst/100);
+
+            document.getElementById('total').value=amount+totalgst;
+
+        }
+
+    </script>
+
+</body>
+</html>

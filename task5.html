@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>multi functionality</title>
+    <style>
+        .block {
+            display: flex;
+            flex-direction: column;
+            height: 97vh;
+            justify-content: space-evenly;
+        }
+
+        .row {
+            display: flex;
+            justify-content: space-evenly;
+        }
+
+        #div1,
+        #div2 {
+            width: 400px;
+            height: 200px;
+            background-color: rgb(232, 243, 242);
+            border: 2px solid rgb(170, 138, 246);
+            background-image: url();
+        }
+
+        .btn {
+            width: 70px;
+            padding: 5px;
+            /* background-color: rgba(50, 50, 244, 0.856);
+            color: white;
+            border: 1px solid black; */
+        }
+    </style>
+</head>
+
+<body>
+    <div class="block">
+        <div class="row">
+            <input type="text" id="i1">
+            <input type="text" id="i2">
+        </div>
+
+        <div class="row">
+            <button class="btn" id="btn-1" onclick="one()">1</button>
+            <button class="btn" id="btn-2" onclick="two()">2</button>
+            <button class="btn" id="btn-3" onclick="three()">3</button>
+            <button class="btn" id="btn-4" onclick="four()">4</button>
+            <button class="btn" id="btn-5" onclick="five()">5</button>
+        </div>
+
+        <div class="row">
+            <div id="div1">
+                hello
+            </div>
+            <div id="div2">
+                bye
+            </div>
+        </div>
+
+    </div>
+
+
+
+    <script>
+
+        function one() {
+            var in1 = document.getElementById('i1').value;
+            document.getElementById('i2').value = in1;
+        }
+
+        function two() {
+            var in1 = document.getElementById('i1').value;
+            alert(in1);
+            var d1 = document.getElementById('div1').innerHTML;
+            alert(d1);
+            var d2 = document.getElementById('div2').innerHTML;
+            alert(d2);
+        }
+
+        function three() {
+            var in1 = document.getElementById('i1').value;
+            document.getElementById('div2').innerHTML = in1;
+
+        }
+
+        function four() {
+            var in1 = document.getElementById('i1').value;
+            var in2 = document.getElementById('i2').value;
+
+            var d1 = document.getElementById('div1').innerHTML;
+
+            var d1 = document.getElementById('div1').innerHTML = d1 + in1 + in2;
+
+        }
+
+        function five() {
+
+            document.getElementById('i1').type = 'radio';
+            document.getElementById('i2').type = 'checkbox';
+            document.getElementById("div2").style.backgroundImage = "url('download.jpg')";
+            document.getElementById("div2").style.backgroundSize = "cover";
+        }
+    </script>
+</body>
+
+</html>
